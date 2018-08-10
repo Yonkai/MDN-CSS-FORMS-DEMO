@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Learning Forms</title>
+
+</head>
+
+  <body>
+	<h1 style="font-family:Courier New;"><mark> Native Form widgets:See MDN for more details </mark></h1>
+	<input></input>
+	<!--Atributes available to all form widgets -->
+	<!-- Input tags can be anything, but they deafault to text fields, set with type attr. -->
+	<input autofocus="true"></input>
+	<input disabled="true"></input>
+	<input name="sentWithFormData"></input>
+	<input value="initialValue"></input>
+	<br>
+	<!--Text field specific common attributes -->
+	<input readonly="true" value="read only value"></input>
+	<input placeholder="Place holder text"></input>
+	<input size="5" maxlength="5" value="size and length are different"></input>
+	<!--password input field (HTML5) -->
+	<input type="password" id="pwd" name="pwd">
+	<!--Multi-line text field -->
+	<br>
+	<textarea cols="30" rows="10">Initial values go inside</textarea>
+	<textarea cols="20" rows="5"> the tags, not on an attribute like</textarea>
+	<textarea style="resize: none;" value="This doesn't work!" cols="10" rows="2">input textfields.</textarea>
+	<textarea cols="40" rows="4"> I also only accept text inputs</textarea>
+	<br>
+	<!-- Select box -->
+	<select id="simple" name="simple">
+	<!--
+		If an <option> element is set with a value attribute, 
+		that attribute's value is sent when the form is submitted. If the value attribute is omitted, 
+		the content of the <option> element is used as the select box's value.
+    -->
+	<optgroup label="numbers">
+		<option>Option 1</option>
+		<option selected>Option 2</option>
+		<option>Option 3</option>
+	</optgroup>
+	<optgroup label="letters">
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+	</optgroup>
+	</select>
+	
+	<!--Multiple select box -->
+	<select multiple id="multi" name="multi">
+		<option>(A) You can Ctrl+Click these</option>
+		<option>B</option>
+		<option>C</option>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+	</select>
+	
+	<!-- Autocomplete box, this needs to setup a certain way -->
+	<!-- See MDN on how to setup, not complicated= -->
+	<label for="myFruit">What's your favorite fruit?</label>
+	<input type="text" name="myFruit" id="myFruit" list="mySuggestion">
+	<datalist id="mySuggestion">
+		<option>Apple</option>
+		<option>Banana</option>
+		<option>Blackberry</option>
+		<option>Blueberry</option>
+		<option>Lemon</option>
+		<option>Lychee</option>
+		<option>Peach</option>
+		<option>Pear</option>
+	</datalist>
+	<!--Example from MDN of two types of Check Boxes/Radio Boxes,
+		see specifics for how these send out values/are structured. -->
+<form>
+        <fieldset>
+          <legend>Choose your #</legend>
+          <ul>
+            <li>
+              <label for="1a">1</label>
+              <input type="checkbox" checked id="1" name="1" value="1a">
+            </li>
+            <li>
+              <label for="2a">2</label>
+              <input type="checkbox" id="2" name="2" value="2a">
+            </li>
+            <li>
+              <label for="3a">3</label>
+              <input type="checkbox" id="3" name="3" value="3a">
+            </li>
+            <li>
+              <label for="4a">4</label>
+              <input type="checkbox" id="4" name="4" value="4a">
+            </li>
+            <li>
+              <label for="5a">5</label>
+              <input type="checkbox" id="5" name="5" value="5a">
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>What is your favorite letter?</legend>
+          <ul>
+            <li>
+              <label for="Arada">A</label>
+              <input type="radio" checked id="Arad" name="letter" value="Arada">
+            </li>
+            <li>
+              <label for="Brada">B</label>
+              <input type="radio" id="Brad" name="letter" value="Brada">
+            </li>
+            <li>
+              <label for="Crada">C</label>
+              <input type="radio" id="Crad" name="letter" value="Crada">
+            </li>
+            <li>
+              <label for="Drada">D</label>
+              <input type="radio" id="Drad" name="letter" value="Drada">
+            </li>
+            <li>
+              <label for="Erada">E</label>
+              <input type="radio" id="Erad" name="letter"  value="Erada">
+            </li>
+          </ul>
+        </fieldset>
+	<br>
+</form>
+<!--Buttons can be made from both input tags and button tags->
+<!--3 types: Submit (sends data to server), Reset, and Anonymous(JS)-->
+<!-- You can add html inside buttons, interestingly -->
+<button type="submit">
+    This a <br><strong>submit button</strong>
+</button>
+
+<input type="submit" value="This is a submit button">
+
+<button type="reset">
+    This a <br><strong>reset button</strong>
+</button>
+
+<input type="reset" value="This is a reset button">
+
+<button type="button">
+    This an <br><strong>anonymous button<div style="background-color:red;width:10px;height:10px;"></div></strong>
+</button>
+
+<input type="button" value="This is an anonymous button">
+<br>
+<!-- Advanced native form widgets -->
+<!--Numbers-->
+<label for="numbers">Number input: </label>
+<input type="number" name="age" id="age" min="1" max="10" step="2" value="numbers">
+<!--Slider-->
+<label for="sliders">Slider input: </label>
+<input type="range" name="beans" id="beans0" min="0" max="500" step="10" value="sliders">
+<!--Slider with input shown with javascript -->
+<label for="beans">How many beans can you eat?</label>
+<input type="range" name="beans" id="beans" min="0" max="500" step="10">
+<span class="beancount"></span>
+<br>
+<!--Date with time, no time zone -->
+<input type="datetime-local" name="datetime" id="datetime">
+<!--This creates a widget to display and pick a month with a year.-->
+<input type="month" name="month" id="month">
+<!--This creates a widget to display and pick a time value.-->
+<input type="time" name="time" id="time">
+<!--week-->
+<input type="week" name="week" id="week">
+<!-- Date and time can be controlled with min and max attributes -->
+<br>
+<label for="myDate">When are you available this summer?</label>
+<input type="date" name="myDate" min="2013-06-01" max="2013-08-31" id="myDate">
+<!--color picker, question, what data does this send-->
+<input type="color" name="color" id="color">
+<!-- File sender, see MDN for implementation-->
+<input type="file" name="file" id="file" accept="image/*" multiple>
+<!-- Hidden content-->
+<br>
+<input type="hidden" id="timestamp" name="timestamp" value="1286705410">
+<!--Image button,*this has some cool properties, check it out if you forgot. -->
+<input type="image" alt="Click me!" src="my-img.png" width="80" height="30" />
+<!--Progress bars-->
+<progress max="100" value="75">75/100</progress>
+<progress max="10" value="7">75/100</progress>
+<meter min="0" max="100" value="75" low="33" high="66" optimum="50">75</meter>
+
+  <script>
+var beans = document.querySelector('#beans');
+var count = document.querySelector('.beancount');
+
+count.textContent = beans.value;
+
+beans.oninput = function() {
+  count.textContent = beans.value;
+}
+
+</script>
+  </body>
+</html>
+
